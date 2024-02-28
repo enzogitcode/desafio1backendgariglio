@@ -39,6 +39,5 @@ class ProductManager {
 
 const manager = new ProductManager ();
 manager.addProduct ('producto prueba', 'Este es un producto prueba', 200, 'sin imagen', 'abc123', 25)
-manager.addProduct ('producto prueba', 'Este es un producto prueba', 200, 'sin imagen', 'abc123', 25)
 console.log(manager.getProducts());
 
