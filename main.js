@@ -10,12 +10,15 @@ class ProductManager {
     getProducts (products) {
     return  new products
     }
-    getProductById () {}
+    getProductById (id) {
+        if (!this.products.find ((products) => products.id === id) ){
+            console.log ("not found")
+        }
+    }
 }
 
 const products= new ProductManager;
-productos.addProduct= ('producto prueba', 'Este es un producto prueba', 200, 'sin imagen', 'abc123', 25)
-
+products.addProduct= ('producto prueba', 'Este es un producto prueba', 200, 'sin imagen', 'abc123', 25)
 
 /* this.title = title,
    this.description = description,
