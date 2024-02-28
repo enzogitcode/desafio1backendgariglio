@@ -5,22 +5,31 @@ class ProductManager {
     }
     addProduct(title, description, price, thumbnail, code, stock) {
 
-        if (!title || !description || !price || !img || !code || !stock) {
+        if (!title || !description || !price || !thumbnail || !code || !stock) {
             console.log("Todos los campos son obligatorios");
             return;
         }
         if (this.products.some((product) => product.code === code)) {
-            ("code debe ser único")
+           console.log ("El código debe ser único")
             return;
         }
-        ProductManager.id++
-        this.products.push({ id: ProductManager.id, title, description, price, thumbnail, code, stock })
+
+        const newProduct = {
+            id: ++ProductManager.id,
+            title,
+            description,
+            price,
+            thumbnail,
+            code,
+            stock
+        }
+        this.products.push(newProduct);
     }
     getProducts() {
         return this.products;
     }
     getProductById(id) {
-        const product = this.products.find((products) => products.id === id)
+        const product = this.products.find((item) => item.id === id)
         if (!product) {
             console.log("not found")
         }
@@ -28,7 +37,8 @@ class ProductManager {
     }
 }
 
-const manager = new ProductManager;
-manager.addProduct = ('producto prueba', 'Este es un producto prueba', 200, 'sin imagen', 'abc123', 25)
+const manager = new ProductManager ();
+manager.addProduct ('producto prueba', 'Este es un producto prueba', 200, 'sin imagen', 'abc123', 25)
+manager.addProduct ('producto prueba', 'Este es un producto prueba', 200, 'sin imagen', 'abc123', 25)
 console.log(manager.getProducts());
 
